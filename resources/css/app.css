@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        background-color: #F3F1EA;
+        color: #1E211C;
+    }
+
+    /* Remove default focus rings, use custom */
+    *:focus-visible {
+        outline: 2px solid #26473A;
+        outline-offset: 2px;
+    }
+}
+
+@layer components {
+    /* ======= BUTTONS ======= */
+    .btn-primary {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-primary text-paper text-sm font-semibold rounded border border-primary hover:bg-primary-hover transition-colors;
+    }
+    .btn-ghost {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-ink text-sm font-semibold rounded border border-border hover:bg-surface transition-colors;
+    }
+    .btn-danger {
+        @apply inline-flex items-center gap-2 px-4 py-2 text-b3 text-sm font-semibold rounded border border-b3/30 hover:bg-b3-light transition-colors;
+    }
+
+    /* ======= FORM INPUTS ======= */
+    .field-input {
+        @apply w-full text-sm rounded border-border bg-paper text-ink placeholder-ink-faint focus:border-primary focus:ring-1 focus:ring-primary transition-colors;
+    }
+    .field-label {
+        @apply block text-sm font-medium text-ink mb-1.5;
+    }
+
+    /* ======= CARDS / SURFACES ======= */
+    .card {
+        @apply bg-paper border border-border rounded overflow-hidden;
+    }
+    .card-header {
+        @apply px-5 py-3.5 border-b border-border flex items-center justify-between;
+    }
+    .card-title {
+        @apply text-sm font-semibold text-ink;
+    }
+
+    /* ======= RECEIPT / NOTA STYLE ======= */
+    /* Dotted leader line between label and value */
+    .receipt-row {
+        @apply flex items-baseline gap-1 py-1.5;
+    }
+    .receipt-label {
+        @apply text-sm text-ink-muted shrink-0;
+    }
+    .receipt-dots {
+        @apply flex-1 border-b border-dashed border-border mb-0.5;
+    }
+    .receipt-value {
+        @apply text-sm font-medium text-ink shrink-0 tabular-nums;
+    }
+    .receipt-total-row {
+        @apply flex items-baseline gap-1 pt-2 mt-1 border-t-2 border-ink;
+    }
+    .receipt-total-label {
+        @apply text-sm font-semibold text-ink shrink-0;
+    }
+    .receipt-total-value {
+        @apply text-base font-bold text-ink shrink-0 font-mono tabular-nums;
+    }
+
+    /* ======= SCALE DISPLAY (timbangan digital) ======= */
+    .scale-display {
+        @apply font-mono text-5xl font-bold tabular-nums tracking-tight text-ink;
+    }
+    .scale-unit {
+        @apply font-mono text-xl font-normal text-ink-muted ml-1;
+    }
+    .scale-points {
+        @apply font-mono tabular-nums font-bold text-poin;
+    }
+
+    /* ======= KATEGORI DOTS ======= */
+    .dot-organik {
+        @apply inline-block w-2 h-2 rounded-full bg-organik shrink-0;
+    }
+    .dot-anorganik {
+        @apply inline-block w-2 h-2 rounded-full bg-anorganik shrink-0;
+    }
+    .dot-b3 {
+        @apply inline-block w-2 h-2 rounded-full bg-b3 shrink-0;
+    }
+
+    /* ======= STATUS INDICATORS ======= */
+    .status-pending {
+        @apply inline-flex items-center gap-1.5 text-xs font-medium text-poin;
+    }
+    .status-verified {
+        @apply inline-flex items-center gap-1.5 text-xs font-medium text-organik;
+    }
+    .status-rejected {
+        @apply inline-flex items-center gap-1.5 text-xs font-medium text-b3;
+    }
+
+    /* ======= NAV LINK ======= */
+    .nav-link {
+        @apply text-sm text-ink-muted hover:text-ink transition-colors px-1 py-4 border-b-2 border-transparent;
+    }
+    .nav-link-active {
+        @apply text-sm text-ink font-medium border-b-2 border-primary px-1 py-4;
+    }
+
+    /* ======= TABLE ======= */
+    .data-table {
+        @apply w-full text-left text-sm;
+    }
+    .data-table thead tr {
+        @apply border-b border-border;
+    }
+    .data-table thead th {
+        @apply py-2.5 px-4 text-xs font-medium text-ink-muted;
+    }
+    .data-table tbody tr {
+        @apply border-b border-border last:border-0 hover:bg-surface transition-colors;
+    }
+    .data-table tbody td {
+        @apply py-3 px-4 text-sm text-ink;
+    }
+
+    /* ======= ALERTS ======= */
+    .alert-success {
+        @apply flex items-start gap-3 p-3.5 bg-primary-light border border-primary/20 text-primary text-sm rounded;
+    }
+    .alert-error {
+        @apply flex items-start gap-3 p-3.5 bg-b3-light border border-b3/20 text-b3 text-sm rounded;
+    }
+}
+
+@layer utilities {
+    /* Points number display */
+    .pts-display {
+        font-family: 'IBM Plex Mono', monospace;
+        color: #D6B33D;
+        font-variant-numeric: tabular-nums;
+    }
+    /* Weight number display */
+    .weight-display {
+        font-family: 'IBM Plex Mono', monospace;
+        font-variant-numeric: tabular-nums;
+        color: #1E211C;
+    }
+}
